@@ -20,25 +20,25 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Create una Cuenta</h2>
 
-              <form>
+              <form id="registro" name="registro" autocomplete="off" method="post" action="register2.php">
 
                 <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                  <input type="text" name="nombre" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example1cg">Nombre</label>
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                  <input type="text" name="apellido" id="form3Example3cg" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example3cg">Apellido</label>
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
+                  <input type="email" name="email" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example4cg">Email</label>
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
+                  <input type="password" name="contraseña" id="form3Example4cdg" class="form-control form-control-lg" />
                   <label class="form-label" for="form3Example4cdg">Contraseña</label>
                 </div>
 
@@ -49,14 +49,9 @@
                   </label>
                 </div>
 
-                <div class="d-flex justify-content-center">
-                  <button  type="button" data-mdb-button-init
-                    data-mdb-ripple-init class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Registrar</button>
-                </div>
-
-                <p class="text-center text-muted mt-5 mb-0">¿Ya tienes una cuenta? <a href="login.php"
-                    class="fw-bold text-body"><u>Inicia Sesión aquí</u></a></p>
-
+                <div class="form-group">
+							    <input type="submit" value="Registrar" class="btn btn-primary">
+						    </div>
               </form>
 
             </div>
