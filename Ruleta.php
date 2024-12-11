@@ -46,5 +46,36 @@
   </div>
 </nav>
 
+<form class="form" method="POST" action="ruleta2.php">
+
+<h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Verifica tu cuenta y introduce el número color que quieras elegir</h5>
+
+<div data-mdb-input-init class="form-outline mb-4">
+<label class="form-label" for="form2Example17">Email</label>
+  <input type="email" name="email" class="form-control form-control-lg" />
+  
+</div>
+
+<div data-mdb-input-init class="form-outline mb-4">
+<label class="form-label" for="form2Example27">Contraseña</label>
+  <input type="password" name="contraseña" class="form-control form-control-lg" />
+</div>
+
+<div data-mdb-input-init class="form-outline mb-4">
+<label class="form-label" for="form2Example27">Color a elegir. (Escribe ROJO o NEGRO)</label>
+  <input type="text" name="color" class="form-control form-control-lg" />
+  
+</div>
+
+<div data-mdb-input-init class="form-outline mb-4">
+<label class="form-label" for="form2Example27">Dinero a apostar.</label>
+  <input type="number" name="apostado" class="form-control form-control-lg" />
+  
+</div>
+
+<button type="submit" class="button">¡A JUGAR!</button>
+
+</form>
+
 </body>
 </html>

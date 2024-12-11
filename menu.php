@@ -40,6 +40,9 @@
           </ul>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="añadirsaldo.php">Añadir Saldo</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="Index.php">Cerrar Sesión</a>
         </li>
       </ul>
