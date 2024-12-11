@@ -1,9 +1,15 @@
 <?php
-$conx = mysqli_connect("localhost","root","","ProyectoManu");
+$server = "localhost";
+$user = "root";
+$pass = "";
+$db = "Proyectomanu";
 
-if (!$conx) {
-  echo "Fallo al conectar a MySQL: " . mysqli_connect_error();
-  exit();
+$conexion = new mysqli($server, $user, $pass, $db);
+
+if ($conexion->connect_errno) {
+  die("Conexion fallida" . $conexion->connect_errno);
+} else {
+  echo "Conectado";
 }
 ?>
 
