@@ -1,0 +1,22 @@
+.jumbotron {
+    height: 300px;
+    color: #fff;
+    overflow: hidden;
+    background-size: cover;
+    background-image: url(https://images.ctfassets.net/396hpkwz9eqc/5MQSR4QgpLRXcqgcj8OoxI/589bbc2eab72d8e3faf9a607c2a2102c/casino_locowin_banner.webp);
+}
+
+#carouselExample{
+    padding: 50px;
+}
+
+.carousel-inner :active {
+    height: 500px;
+    width: 100%;
+
+}
+
+.carousel-item {
+    height: 500px;
+    width: 100%;
+}
