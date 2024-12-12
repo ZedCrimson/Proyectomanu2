@@ -13,8 +13,11 @@
 		<title>Casino Locowin</title>
 	</head>
 	<header>
-		
-	</header>
+  <div class="jumbotron text-center">
+    <div class="page-header">
+    </div>
+  </div>
+</header>
 	<body>
 		<?php
 			 //ESTABLEZCO CONEXION
@@ -32,7 +35,7 @@
 			 $resultado = $conexion -> query($sql);
 	 
 			 if($resultado > 0 ){
-				header("location: menu.php?valorid=$valorid");
+				header("location: menu.php");
 			 }else{
 				 echo "<p class='alert alert-danger'>Ha habido un error</p>";
 			 }

@@ -39,12 +39,28 @@ if ($resultadoid->num_rows > 0) {
     $valorid = $fila['Id_usuario']; // Almacena el resultado en una variable
 }
 
+$nombreusu= "SELECT Nombre from tabla_usuarios as saldo where Correo_Electrónico = '$email' and contraseña = '$contraseña'";
+$nombreusuario = $conexion->query($nombreusu);
+if ($nombreusuario->num_rows > 0) {
+    // Obtener el valor
+    $fila = $nombreusuario->fetch_assoc();
+    $valornombre = $fila['Nombre']; // Almacena el resultado en una variable
+}
+
+$apellidousu= "SELECT Apellido from tabla_usuarios as saldo where Correo_Electrónico = '$email' and contraseña = '$contraseña'";
+$apellidousuario = $conexion->query($apellidousu);
+if ($apellidousuario->num_rows > 0) {
+    // Obtener el valor
+    $fila = $apellidousuario->fetch_assoc();
+    $valorapellido = $fila['Apellido']; // Almacena el resultado en una variable
+}
+
 session_start(); // Iniciar la sesión
 
 // Asignar un valor a una variable de sesión
 $_SESSION['id_usuario'] = $valorid;
-
-
+$_SESSION['nombre_usu'] = $valornombre;
+$_SESSION['apellido_usu'] = $valorapellido;
 
 //se prepara y ejecuta la sentencia
 $sql = "SELECT * FROM tabla_usuarios where Correo_electrónico='$email' and contraseña='$contraseña' LIMIT 1";

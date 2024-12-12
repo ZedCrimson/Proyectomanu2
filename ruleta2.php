@@ -20,24 +20,17 @@
 			 require 'conexion.php';
 
 			 //obtengo los datos introducidos en el formulario anterior
-             $email = $_POST['email'];
-			 $contraseña = $_POST['contraseña'];
 			 $color= $_POST['color'];
              $apostado= $_POST['apostado'];
+			 $valorid= $_POST['user_id'];
 			 
 
 			 // Consulta SQL
 // Consulta SQL para obtener un valor específico
-$id = "SELECT Id_usuario from tabla_usuarios as id where Correo_Electrónico = '$email' and contraseña = '$contraseña'";
 
-$sql = "SELECT Saldo from tabla_usuarios as saldo where Correo_Electrónico = '$email' and contraseña = '$contraseña'";
-$resultado1 = $conexion->query($id);
+$sql = "SELECT Saldo from tabla_usuarios as saldo where Id_usuario ='$valorid'";
+
 $resultado2 = $conexion->query($sql);
-if ($resultado1->num_rows > 0) {
-    // Obtener el valor
-    $fila = $resultado1->fetch_assoc();
-    $valor1 = $fila['Id_usuario']; // Almacena el resultado en una variable
-}
 
 // Verificar si hay resultados
 if ($resultado2->num_rows > 0) {
@@ -68,18 +61,18 @@ if ($resultado2->num_rows > 0) {
 			$res="GANADOR";
 			echo "HAS GANADO!!";
 			//se prepara la sentencia sql
-			$sql = "UPDATE tabla_usuarios SET Saldo = Saldo + $apostado WHERE Correo_electrónico = '$email' AND Contraseña = '$contraseña'";
+			$sql = "UPDATE tabla_usuarios SET Saldo = Saldo + $apostado where Id_usuario ='$valorid'";
 			$resultado = $conexion -> query($sql);
 
 		} else {
 			$res="PERDEDOR";
 			echo "HAS PERDIDO";
 			//se prepara la sentencia sql
-			$sql = "UPDATE tabla_usuarios SET Saldo = Saldo - $apostado WHERE Correo_electrónico = '$email' AND Contraseña = '$contraseña'";
+			$sql = "UPDATE tabla_usuarios SET Saldo = Saldo - $apostado where Id_usuario ='$valorid'";
 			$resultado = $conexion -> query($sql);
 		}
 
-		$sql = "INSERT INTO tabla_jugada (Id_usuario, Fecha, Apuesta, Color, Número_Ganador, Color_Ganador, Resultado) VALUES ('$valor1','(NOW())','$apostado','$color', '$numeroAleatorio', '$numerocolor', '$res' )";
+		$sql = "INSERT INTO tabla_jugada (Id_usuario, Fecha, Apuesta, Color, Número_Ganador, Color_Ganador, Resultado) VALUES ('$valorid','(NOW())','$apostado','$color', '$numeroAleatorio', '$numerocolor', '$res' )";
 		//se ejecuta la sentencia y se gurada el resultado en resultado
 		$resultado = $conexion->query($sql);
 

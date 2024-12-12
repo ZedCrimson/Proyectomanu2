@@ -16,18 +16,7 @@
     </div>
   </div>
 </header>
-<?php
-session_start(); // Iniciar la sesión
 
-// Verificar si la variable de sesión existe
-if (isset($_SESSION['id_usuario'])) {
-    // Recuperar el valor de la variable de sesión
-    $nombreUsuario = $_SESSION['id_usuario'];
-    echo 'El usuario actual es: ' . $nombreUsuario; // Mostrar el valor
-} else {
-  echo 'No hay usuario registrado en la sesión.';
-}
-?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">LOCOWIN</a>
@@ -37,17 +26,23 @@ if (isset($_SESSION['id_usuario'])) {
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-            <a class="nav-link" href="menu2.php">Inicio</a>
+            <a class="nav-link" href="menu.php">Inicio</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Juegos
           </a>
           <ul class="dropdown-menu">
-              <a class="nav-link" href="menu.php">Ruleta</a>
+              <a class="nav-link" href="ruleta.php">Ruleta</a>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Proximamente...</a></li>
           </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="añadirsaldo.php">Añadir Saldo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="retirarsaldo.php">Retirar Saldo</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="Index.php">Cerrar Sesión</a>
@@ -56,6 +51,33 @@ if (isset($_SESSION['id_usuario'])) {
     </div>
   </div>
 </nav>
+
+<?php
+session_start(); // Iniciar la sesión
+
+// Verificar si la variable de sesión existe
+if (isset($_SESSION['id_usuario'])) {
+    // Recuperar el valor de la variable de sesión
+    $idusu = $_SESSION['id_usuario'];
+}
+
+if (isset($_SESSION['nombre_usu'])) {
+  // Recuperar el valor de la variable de sesión
+  $nombreusu = $_SESSION['nombre_usu'];
+ 
+}
+
+if (isset($_SESSION['apellido_usu'])) {
+  // Recuperar el valor de la variable de sesión
+  $apellidousu = $_SESSION['apellido_usu'];
+  
+}
+
+echo "Bienvenido a Locowin: <b>$nombreusu $apellidousu</b>";
+
+?>
+
+
 <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">
