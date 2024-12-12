@@ -24,10 +24,39 @@
 			 $contraseña = $_POST['contraseña'];
 			 $color= $_POST['color'];
              $apostado= $_POST['apostado'];
+			 
 
-			 $condicion1=mysql_query("SELECT Saldo from tabla_usuario as saldo where Correo_Electrónico = '$email' and contraseña = '$contraseña';");
-			 $condicion12=mysql_fetch_assoc($condicion1);
-			 $condicion123=$condicion12["saldo"];
+			 // Consulta SQL
+// Consulta SQL para obtener un valor específico
+$id = "SELECT Id_usuario from tabla_usuarios as id where Correo_Electrónico = '$email' and contraseña = '$contraseña'";
+
+$sql = "SELECT Saldo from tabla_usuarios as saldo where Correo_Electrónico = '$email' and contraseña = '$contraseña'";
+$resultado1 = $conexion->query($id);
+$resultado2 = $conexion->query($sql);
+if ($resultado1->num_rows > 0) {
+    // Obtener el valor
+    $fila = $resultado1->fetch_assoc();
+    $valor1 = $fila['Id_usuario']; // Almacena el resultado en una variable
+}
+
+// Verificar si hay resultados
+if ($resultado2->num_rows > 0) {
+    // Obtener el valor
+    $fila = $resultado2->fetch_assoc();
+    $valor2 = $fila['Saldo']; // Almacena el resultado en una variable
+
+
+    // Comparar con un número
+    if ($apostado > $valor2) {
+        header("location: ErrorApostarMasCuenta.php");
+    } else {
+        echo "Has apostado" . $apostado;
+		echo "";
+		echo "Tienes" . $valor2;
+		echo "";
+		echo "Tu id es" . $valor1;
+    }
+}
 		?>
 
 	</body>
