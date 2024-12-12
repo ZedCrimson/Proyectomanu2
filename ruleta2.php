@@ -50,11 +50,24 @@ if ($resultado2->num_rows > 0) {
     if ($apostado > $valor2) {
         header("location: ErrorApostarMasCuenta.php");
     } else {
-        echo "Has apostado" . $apostado;
-		echo "";
-		echo "Tienes" . $valor2;
-		echo "";
-		echo "Tu id es" . $valor1;
+
+        $sql = "INSERT INTO tabla_jugada (Id_usuario, Fecha, Apuesta, Color) VALUES ('$valor1','(GETDATE())','$apostado','$color')";
+		//se ejecuta la sentencia y se gurada el resultado en resultado
+		$resultado = $conexion->query($sql);
+
+		echo "Todo correcto";
+
+		// Genera un número aleatorio entre 1 y 100
+		$numeroAleatorio = rand(1, 38);
+		
+		echo $numeroAleatorio;
+
+		if ($numeroAleatorio % 2 == 0) {
+			echo "ROJO";
+		} else {
+			echo "NEGRO";
+		}
+
     }
 }
 		?>
