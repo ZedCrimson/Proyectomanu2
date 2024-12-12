@@ -21,17 +21,18 @@
 			 require 'conexion.php';
 
 			 //obtengo los datos introducidos en el formulario anterior
-             $email = $_POST['email'];
-			 $contraseña = $_POST['contraseña'];
+
+			 
 			 $saldo= $_POST['saldo'];
+			 $valorid= $_POST['user_id'];
 	
 			 //se prepara la sentencia sql
-			 $sql = "UPDATE tabla_usuarios SET Saldo = Saldo + $saldo WHERE Correo_electrónico = '$email' AND Contraseña = '$contraseña'";
+			 $sql = "UPDATE tabla_usuarios SET Saldo = Saldo + $saldo WHERE Id_usuario = '$valorid'";
 			 //se ejecuta la sentencia y se gurada el resultado en resultado
 			 $resultado = $conexion -> query($sql);
 	 
 			 if($resultado > 0 ){
-				 header("location: menu.php");
+				header("location: menu.php?valorid=$valorid");
 			 }else{
 				 echo "<p class='alert alert-danger'>Ha habido un error</p>";
 			 }

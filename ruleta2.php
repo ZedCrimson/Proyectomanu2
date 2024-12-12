@@ -51,11 +51,7 @@ if ($resultado2->num_rows > 0) {
         header("location: ErrorApostarMasCuenta.php");
     } else {
 
-        $sql = "INSERT INTO tabla_jugada (Id_usuario, Fecha, Apuesta, Color) VALUES ('$valor1','(GETDATE())','$apostado','$color')";
-		//se ejecuta la sentencia y se gurada el resultado en resultado
-		$resultado = $conexion->query($sql);
-
-		echo "Todo correcto";
+       
 
 		// Genera un número aleatorio entre 1 y 100
 		$numeroAleatorio = rand(1, 38);
@@ -63,10 +59,31 @@ if ($resultado2->num_rows > 0) {
 		echo $numeroAleatorio;
 
 		if ($numeroAleatorio % 2 == 0) {
-			echo "ROJO";
+			$numerocolor="ROJO";
 		} else {
-			echo "NEGRO";
+			$numerocolor="NEGRO";
 		}
+
+		if ($color == $numerocolor) {
+			$res="GANADOR";
+			echo "HAS GANADO!!";
+			//se prepara la sentencia sql
+			$sql = "UPDATE tabla_usuarios SET Saldo = Saldo + $apostado WHERE Correo_electrónico = '$email' AND Contraseña = '$contraseña'";
+			$resultado = $conexion -> query($sql);
+
+		} else {
+			$res="PERDEDOR";
+			echo "HAS PERDIDO";
+			//se prepara la sentencia sql
+			$sql = "UPDATE tabla_usuarios SET Saldo = Saldo - $apostado WHERE Correo_electrónico = '$email' AND Contraseña = '$contraseña'";
+			$resultado = $conexion -> query($sql);
+		}
+
+		$sql = "INSERT INTO tabla_jugada (Id_usuario, Fecha, Apuesta, Color, Número_Ganador, Color_Ganador, Resultado) VALUES ('$valor1','(NOW())','$apostado','$color', '$numeroAleatorio', '$numerocolor', '$res' )";
+		//se ejecuta la sentencia y se gurada el resultado en resultado
+		$resultado = $conexion->query($sql);
+
+		echo "Todo correcto";
 
     }
 }

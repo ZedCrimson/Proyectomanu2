@@ -14,7 +14,7 @@
     
         <h1>¿Tienes más de 18 años?</h1>
         <a href="login.php" class="btn">Si Señor Locowin</a>
-        <a href="index.php" class="btn">No,soy podemita</a>
+        <a href="index.php" class="btn">No,soy menor</a>
 
 </body>
 </html>

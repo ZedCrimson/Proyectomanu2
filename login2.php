@@ -31,6 +31,21 @@ require 'conexion.php';
 $email = $_POST['email'];
 $contraseña = $_POST['contraseña'];
 
+$id = "SELECT Id_usuario from tabla_usuarios as saldo where Correo_Electrónico = '$email' and contraseña = '$contraseña'";
+$resultadoid = $conexion->query($id);
+if ($resultadoid->num_rows > 0) {
+    // Obtener el valor
+    $fila = $resultadoid->fetch_assoc();
+    $valorid = $fila['Id_usuario']; // Almacena el resultado en una variable
+}
+
+session_start(); // Iniciar la sesión
+
+// Asignar un valor a una variable de sesión
+$_SESSION['id_usuario'] = $valorid;
+
+
+
 //se prepara y ejecuta la sentencia
 $sql = "SELECT * FROM tabla_usuarios where Correo_electrónico='$email' and contraseña='$contraseña' LIMIT 1";
 $resultado = $conexion->query($sql);

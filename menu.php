@@ -16,7 +16,18 @@
     </div>
   </div>
 </header>
+<?php
+session_start(); // Iniciar la sesión
 
+// Verificar si la variable de sesión existe
+if (isset($_SESSION['id_usuario'])) {
+    // Recuperar el valor de la variable de sesión
+    $nombreUsuario = $_SESSION['id_usuario'];
+    echo 'El usuario actual es: ' . $nombreUsuario; // Mostrar el valor
+} else {
+  echo 'No hay usuario registrado en la sesión.';
+}
+?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">LOCOWIN</a>
@@ -26,21 +37,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="menu.php">Inicio</a>
+            <a class="nav-link" href="menu2.php">Inicio</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Juegos
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="Ruleta.php">Ruleta</a></li>
-            <li><a class="dropdown-item" href="Blackjack.php">Apuesta Deportiva</a></li>
+              <a class="nav-link" href="menu.php">Ruleta</a>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Proximamente...</a></li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="añadirsaldo.php">Añadir Saldo</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="Index.php">Cerrar Sesión</a>
@@ -49,7 +56,6 @@
     </div>
   </div>
 </nav>
-
 <div id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">

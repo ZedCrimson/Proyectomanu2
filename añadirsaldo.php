@@ -8,6 +8,11 @@
     </div>
   </div>
 </header>
+<?php
+		$valorid = $_GET['amount'];
+    echo "la id es: $valorid"
+
+    ?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">LOCOWIN</a>
@@ -17,15 +22,20 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="menu.php">Inicio</a>
+          <?php
+            // Creamos el enlace
+            echo '<a class="nav-link" href="menu2.php?amount=' . $valorid . '">Inicio</a>';
+          ?>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Juegos
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="Ruleta.php">Ruleta</a></li>
-            <li><a class="dropdown-item" href="Blackjack.php">Apuesta Deportiva</a></li>
+            <?php
+              // Creamos el enlace
+              echo '<a class="nav-link" href="menu2.php?amount=' . $valorid . '">Ruleta</a>';
+            ?>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Proximamente...</a></li>
           </ul>
@@ -49,40 +59,19 @@
 		
 	</head>
 	<body>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8">
-					<!-- Completar atributos de form -->
-					<form id="registro" name="registro" autocomplete="off" action="modificar2.php" method="Post">
-						<div class="form-group">
-							<input type="hidden" name="id" value="<?php echo $fila['ID'];?>"> 
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-		
+  <?php
+    echo "la id es: $valorid"
+
+    ?>
         <form class="form" method="POST" action="añadirsaldo2.php">
 
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Verifica tu cuenta y introduce el saldo a elegir</h5>
 
                   <div data-mdb-input-init class="form-outline mb-4">
-                  <label class="form-label" for="form2Example17">Email</label>
-                    <input type="email" name="email" class="form-control form-control-lg" />
-                    
-                  </div>
-
-                  <div data-mdb-input-init class="form-outline mb-4">
-                  <label class="form-label" for="form2Example27">Contraseña</label>
-                    <input type="password" name="contraseña" class="form-control form-control-lg" />
-                  </div>
-
-                  <div data-mdb-input-init class="form-outline mb-4">
                   <label class="form-label" for="form2Example27">Saldo a añadir</label>
                     <input type="number" name="saldo" class="form-control form-control-lg" />
-                    
                   </div>
-
+                  <input type="hidden" name="user_id" value="<?php echo $valorid; ?>" class="form-control form-control-lg" />
                   <button type="submit" class="button">Añadir Saldo</button>
 
                 </form>
