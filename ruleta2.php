@@ -10,7 +10,7 @@
 		<link rel="shortcut icon" href="images/icono.png">
 		<link rel="stylesheet" href="estilos.css">
 		
-		<title>Gimnasio No+Panza</title>
+		<title>Casino Locowin</title>
 	</head>
 	<header>
 	</header>
@@ -25,15 +25,9 @@
 			 $color= $_POST['color'];
              $apostado= $_POST['apostado'];
 
-             $cantidadusu = "SELECT Saldo From tabla_usuarios WHERE Correo_electrónico = 'dinero@locowin.com'and contraseña = 'locowin';";
-
-             $condicion1 = mysqli_query( $conexion, $cantidadusu);
-
-            if ($apostado > $condicion1) {
-                echo "Te has pasado";
-            }else{
-                echo "No te has pasado";
-            }
+			 $condicion1=mysql_query("SELECT Saldo from tabla_usuario as saldo where Correo_Electrónico = '$email' and contraseña = '$contraseña';");
+			 $condicion12=mysql_fetch_assoc($condicion1);
+			 $condicion123=$condicion12["saldo"];
 		?>
 
 	</body>

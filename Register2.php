@@ -11,7 +11,7 @@
 	<link rel="shortcut icon" href="images/icono.png">
 	<link rel="stylesheet" href="estilos.css">
 
-	<title>Locowin</title>
+	<title>Casino Locowin</title>
 </head>
 <header>
 
