@@ -86,11 +86,10 @@ echo "Tu saldo es de: <b>$valorsaldo €</b>";
 echo "<br></br>";
 echo "<br></br>";
 
-// Consulta para seleccionar todos los datos de una tabla
+
 $sql = "SELECT * FROM tabla_jugada where Id_usuario='$idusu'";
 $tabla = $conexion->query($sql);
 
-// Comprobar si hay resultados
 if ($tabla->num_rows > 0) {
     // Crear una tabla HTML
     echo "<table style='border-collapse: collapse; width: 100%;'>";

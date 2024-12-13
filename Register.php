@@ -42,13 +42,6 @@
                   <label class="form-label" for="form3Example4cdg">Contraseña</label>
                 </div>
 
-                <div class="form-check d-flex justify-content-center mb-5">
-                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
-                  <label class="form-check-label" for="form2Example3g">
-                    Estoy de acuerdo con los <a href="" class="text-body"><u>Terminos de Servicio</u></a>
-                  </label>
-                </div>
-
                 <div class="form-group">
 							    <input type="submit" value="Registrar" class="btn btn-primary">
 						    </div>
