@@ -23,15 +23,12 @@
 			 //ESTABLEZCO CONEXION
 			 require 'conexion.php';
 
-			 //obtengo los datos introducidos en el formulario anterior
 
 			 
 			 $saldo= $_POST['saldo'];
 			 $valorid= $_POST['user_id'];
 			
-			 //se prepara la sentencia sql
 			 $sql = "UPDATE tabla_usuarios SET Saldo = Saldo + $saldo WHERE Id_usuario = '$valorid'";
-			 //se ejecuta la sentencia y se gurada el resultado en resultado
 			 $resultado = $conexion -> query($sql);
 			 if($resultado > 0 ){
 			

@@ -30,9 +30,7 @@
 	$email = $_POST['email'];
     $contraseña = $_POST['contraseña'];
 
-	//se prepara la sentencia sql
 	$sql = "INSERT INTO tabla_usuarios (Nombre, Apellido, Correo_electrónico, Contraseña) VALUES ('$nombre','$apellido','$email','$contraseña')";
-	//se ejecuta la sentencia y se gurada el resultado en resultado
 	$resultado = $conexion->query($sql);
 
 	if ($resultado > 0) {

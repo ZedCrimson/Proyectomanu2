@@ -59,29 +59,24 @@
 require 'conexion.php';
 session_start(); // Iniciar la sesión
 
-// Verificar si la variable de sesión existe
 if (isset($_SESSION['id_usuario'])) {
-    // Recuperar el valor de la variable de sesión
     $idusu = $_SESSION['id_usuario'];
 }
 
 if (isset($_SESSION['nombre_usu'])) {
-  // Recuperar el valor de la variable de sesión
   $nombreusu = $_SESSION['nombre_usu'];
  
 }
 
 if (isset($_SESSION['apellido_usu'])) {
-  // Recuperar el valor de la variable de sesión
   $apellidousu = $_SESSION['apellido_usu'];
   
 }
 $saldousu= "SELECT Saldo from tabla_usuarios where Id_usuario ='$idusu'";
 $saldousuario = $conexion->query($saldousu);
 if ($saldousuario->num_rows > 0) {
-    // Obtener el valor
     $fila = $saldousuario->fetch_assoc();
-    $valorsaldo = $fila['Saldo']; // Almacena el resultado en una variable
+    $valorsaldo = $fila['Saldo'];
 }
 
 
