@@ -9,12 +9,8 @@
     <title>Casino Locowin</title>
 </head>
 <body>
-    <audio autoplay>
-        <source src="Recursos/Ruleta song.mp3" type="audio/mpeg">
-    </audio>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <header>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<header>
   <div class="jumbotron text-center">
     <div class="page-header">
     </div>
@@ -74,11 +70,6 @@ if (isset($_SESSION['apellido_usu'])) {
   
 }
 
-if (isset($_SESSION['saldo_usu'])) {
-  $saldousu = $_SESSION['saldo_usu'];
-  
-}
-
 $saldousu= "SELECT Saldo from tabla_usuarios where Id_usuario ='$idusu'";
 $saldousuario = $conexion->query($saldousu);
 if ($saldousuario->num_rows > 0) {
@@ -92,30 +83,43 @@ if ($saldousuario->num_rows > 0) {
 echo "Bienvenido a Locowin: <b>$nombreusu $apellidousu</b>";
 echo "<br></br>";
 echo "Tu saldo es de: <b>$valorsaldo €</b>";
+echo "<br></br>";
+echo "<br></br>";
+
+// Consulta para seleccionar todos los datos de una tabla
+$sql = "SELECT * FROM tabla_jugada where Id_usuario='$idusu'";
+$tabla = $conexion->query($sql);
+
+// Comprobar si hay resultados
+if ($tabla->num_rows > 0) {
+    // Crear una tabla HTML
+    echo "<table style='border-collapse: collapse; width: 100%;'>";
+    echo "<tr style='background-color: #f2f2f2;'><th>Id_usuario</th><th>Fecha</th><th>Apuesta</th><th>Color</th><th>Número_Ganador</th><th>Color_Ganador</th><th>Resultado</th></tr>"; // Encabezados de la tabla
+
+    // Salida de cada fila de la tabla
+    while($row = $tabla->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td style='border: 1px solidrgb(0, 0, 0); padding: 8px;'>" . $row["Id_usuario"] . "</td>";
+        echo "<td style='border: 1px solidrgb(0, 0, 0); padding: 8px;'>" . $row["Fecha"] . "</td>";
+        echo "<td style='border: 1px solidrgb(0, 0, 0); padding: 8px;'>" . $row["Apuesta"] . "</td>";
+        echo "<td style='border: 1px solidrgb(0, 0, 0); padding: 8px;'>" . $row["Color"] . "</td>";
+        echo "<td style='border: 1px solidrgb(0, 0, 0); padding: 8px;'>" . $row["Número_Ganador"] . "</td>";
+        echo "<td style='border: 1px solidrgb(0, 0, 0); padding: 8px;'>" . $row["Color_Ganador"] . "</td>";
+        echo "<td style='border: 1px solidrgb(0, 0, 0); padding: 8px;'>" . $row["Resultado"] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+} else {
+    echo "0 resultados";
+}
+
+
 ?>
 
 
 
 
-<form class="form" method="POST" action="ruleta2.php">
 
-<h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Introduce el color y el dinero que quieras apostar</h5>
-
-<div data-mdb-input-init class="form-outline mb-4">
-<label class="form-label" for="form2Example27">Color a elegir. (Escribe ROJO o NEGRO)</label>
-  <input type="text" name="color" class="form-control form-control-lg" />
-  
-</div>
-
-<div data-mdb-input-init class="form-outline mb-4">
-<label class="form-label" for="form2Example27">Dinero a apostar.</label>
-  <input type="number" name="apostado" class="form-control form-control-lg" />
-  <input type="hidden" name="user_id" value="<?php echo $idusu; ?>" class="form-control form-control-lg" />
-</div>
-
-<button type="submit" class="button">¡A JUGAR!</button>
-
-</form>
 
 </body>
 <footer class="bg-body-tertiary text-center text-lg-start">

@@ -45,6 +45,9 @@
           <a class="nav-link" href="retirarsaldo.php">Retirar Saldo</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="historial.php">Ver Historial</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="Index.php">Cerrar Sesión</a>
         </li>
       </ul>
@@ -60,7 +63,7 @@ if (isset($_SESSION['id_usuario'])) {
     $idusu = $_SESSION['id_usuario'];
 }
 
-if (isset($_SESSION['nombre_usu'])) {n
+if (isset($_SESSION['nombre_usu'])) {
   $nombreusu = $_SESSION['nombre_usu'];
  
 }
@@ -131,4 +134,12 @@ echo "Tu saldo es de: <b>$valorsaldo €</b>";
 
 
 </body>
+<footer class="bg-body-tertiary text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2024 Copyright:
+    <p>Locowin</p>
+  </div>
+  <!-- Copyright -->
+</footer>
 </html>

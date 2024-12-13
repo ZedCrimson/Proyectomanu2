@@ -88,4 +88,12 @@ if ($resultado2->num_rows > 0) {
 		?>
 
 	</body>
+	<footer class="bg-body-tertiary text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2024 Copyright:
+    <p>Locowin</p>
+  </div>
+  <!-- Copyright -->
+</footer>
 </html>

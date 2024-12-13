@@ -121,4 +121,12 @@ echo "Tu saldo es de: <b>$valorsaldo €</b>";
 		<script src="js/jquery-3.4.1.min.js" ></script>
 		<script src="js/bootstrap.min.js" ></script>
 	</body>
+  <footer class="bg-body-tertiary text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2024 Copyright:
+    <p>Locowin</p>
+  </div>
+  <!-- Copyright -->
+</footer>
 </html>			
