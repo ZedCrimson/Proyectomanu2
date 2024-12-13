@@ -57,6 +57,7 @@
 </nav>
 
 <?php
+require 'conexion.php';
 session_start(); // Iniciar la sesión
 
 // Verificar si la variable de sesión existe
@@ -77,7 +78,20 @@ if (isset($_SESSION['apellido_usu'])) {
   
 }
 
+$saldousu= "SELECT Saldo from tabla_usuarios where Id_usuario ='$idusu'";
+$saldousuario = $conexion->query($saldousu);
+if ($saldousuario->num_rows > 0) {
+    // Obtener el valor
+    $fila = $saldousuario->fetch_assoc();
+    $valorsaldo = $fila['Saldo']; // Almacena el resultado en una variable
+}
+
+
+
+
 echo "Bienvenido a Locowin: <b>$nombreusu $apellidousu</b>";
+echo "<br></br>";
+echo "Tu saldo es de: <b>$valorsaldo €</b>";
 
 ?>
 

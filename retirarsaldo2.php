@@ -28,14 +28,17 @@
 			 
 			 $saldo= $_POST['saldo'];
 			 $valorid= $_POST['user_id'];
+			 $simbolo = "-"; // El símbolo que deseas agregar
+
+			 $valor_a_insertar = $simbolo . $saldo;
 			
 			 //se prepara la sentencia sql
-			 $sql = "UPDATE tabla_usuarios SET Saldo = Saldo + $saldo WHERE Id_usuario = '$valorid'";
+			 $sql = "UPDATE tabla_usuarios SET Saldo = Saldo - $saldo WHERE Id_usuario = '$valorid'";
 			 //se ejecuta la sentencia y se gurada el resultado en resultado
 			 $resultado = $conexion -> query($sql);
+	 
 			 if($resultado > 0 ){
-			
-				$sql2 = "INSERT INTO tabla_operación (Id_usuario, Fecha, Acción, Cantidad) VALUES ('$valorid',(CURDATE()), 'AÑADIR', '$saldo')";
+				$sql2 = "INSERT INTO tabla_operación (Id_usuario, Fecha, Acción, Cantidad) VALUES ('$valorid',(CURDATE()), 'RETIRAR', '$saldo')";
 				$resultado2 = $conexion -> query($sql2);
 				header("location: menu.php");
 			 }else{

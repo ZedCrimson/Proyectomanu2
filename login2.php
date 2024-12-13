@@ -31,7 +31,7 @@ require 'conexion.php';
 $email = $_POST['email'];
 $contraseña = $_POST['contraseña'];
 
-$id = "SELECT Id_usuario from tabla_usuarios as saldo where Correo_Electrónico = '$email' and contraseña = '$contraseña'";
+$id = "SELECT Id_usuario from tabla_usuarios where Correo_Electrónico = '$email' and contraseña = '$contraseña'";
 $resultadoid = $conexion->query($id);
 if ($resultadoid->num_rows > 0) {
     // Obtener el valor
@@ -39,7 +39,7 @@ if ($resultadoid->num_rows > 0) {
     $valorid = $fila['Id_usuario']; // Almacena el resultado en una variable
 }
 
-$nombreusu= "SELECT Nombre from tabla_usuarios as saldo where Correo_Electrónico = '$email' and contraseña = '$contraseña'";
+$nombreusu= "SELECT Nombre from tabla_usuarios where Correo_Electrónico = '$email' and contraseña = '$contraseña'";
 $nombreusuario = $conexion->query($nombreusu);
 if ($nombreusuario->num_rows > 0) {
     // Obtener el valor
@@ -47,7 +47,7 @@ if ($nombreusuario->num_rows > 0) {
     $valornombre = $fila['Nombre']; // Almacena el resultado en una variable
 }
 
-$apellidousu= "SELECT Apellido from tabla_usuarios as saldo where Correo_Electrónico = '$email' and contraseña = '$contraseña'";
+$apellidousu= "SELECT Apellido from tabla_usuarios where Correo_Electrónico = '$email' and contraseña = '$contraseña'";
 $apellidousuario = $conexion->query($apellidousu);
 if ($apellidousuario->num_rows > 0) {
     // Obtener el valor
