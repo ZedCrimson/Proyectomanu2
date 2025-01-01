@@ -30,16 +30,23 @@
 	$email = $_POST['email'];
     $contraseña = $_POST['contraseña'];
 
-	$sql = "INSERT INTO tabla_usuarios (Nombre, Apellido, Correo_electrónico, Contraseña) VALUES ('$nombre','$apellido','$email','$contraseña')";
-	$resultado = $conexion->query($sql);
+	$buscaremail = "SELECT * FROM tabla_usuarios where Correo_electrónico='$email'";
+	$resultadoemail = $conexion->query($buscaremail);
 
-	if ($resultado > 0) {
-		header("location: Index.php");
-	} else {
-		echo "<p class='alert alert-danger'>Ha habido un error</p>";
-	}
-	echo "<p><a class='btn btn-primary' href='Index.php'>Regresar</a></p>";
-
+	if ($resultadoemail->num_rows > 0) {
+        echo "El correo ya se a usado";
+		echo "<p><a class='btn btn-primary' href='Index.php'>Regresar</a></p>";
+    } else {
+		$sql = "INSERT INTO tabla_usuarios (Nombre, Apellido, Correo_electrónico, Contraseña) VALUES ('$nombre','$apellido','$email','$contraseña')";
+		$resultado = $conexion->query($sql);
+	
+		if ($resultado > 0) {
+			header("location: Index.php");
+		} else {
+			echo "<p class='alert alert-danger'>Ha habido un error</p>";
+		}
+		echo "<p><a class='btn btn-primary' href='Index.php'>Regresar</a></p>";
+    }
 
 	?>
 

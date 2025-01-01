@@ -54,10 +54,10 @@ if ($resultado2->num_rows > 0) {
 		echo '<br></br>';
 
 		if ($numeroAleatorio % 2 == 0) {
-			$numerocolor="ROJO";
+			$numerocolor="Rojo";
 			echo "<b>$numerocolor</b>";
 		} else {
-			$numerocolor="NEGRO";
+			$numerocolor="Negro";
 			echo "<b>$numerocolor</b>";
 		}
 

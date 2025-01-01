@@ -28,7 +28,11 @@
 			 $saldo= $_POST['saldo'];
 			 $valorid= $_POST['user_id'];
 			
-			 $sql = "UPDATE tabla_usuarios SET Saldo = Saldo + $saldo WHERE Id_usuario = '$valorid'";
+			 if ($saldo < 0){
+				echo "No puedes añadir una cantidad negativa de saldo";
+				echo "<p><a class='btn btn-primary' href='menu.php'>Regresar</a></p>";
+			 } else {
+				$sql = "UPDATE tabla_usuarios SET Saldo = Saldo + $saldo WHERE Id_usuario = '$valorid'";
 			 $resultado = $conexion -> query($sql);
 			 if($resultado > 0 ){
 			
@@ -39,8 +43,7 @@
 				 echo "<p class='alert alert-danger'>Ha habido un error</p>";
 			 }
 			 echo "<p><a class='btn btn-primary' href='index.php'>Regresar</a></p>";
-		 
-			
+			 }			
 		?>
 
 	</body>

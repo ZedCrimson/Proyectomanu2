@@ -33,16 +33,16 @@
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Conectate en tu cuenta</h5>
 
                   <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="email" name="email" class="form-control form-control-lg" />
+                    <input type="email" name="email" class="form-control form-control-lg" Required/>
                     <label class="form-label" for="form2Example17">Email</label>
                   </div>
 
                   <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="password" name="contraseña" class="form-control form-control-lg" />
+                    <input type="password" name="contraseña" class="form-control form-control-lg" Required />
                     <label class="form-label" for="form2Example27">Contraseña</label>
                   </div>
 
-                  <button type="submit" class="button">Iniciar sesión</button>
+                  <button type="submit" class="btn btn-success">Iniciar sesión</button>
 
                   
                   <p class="mb-5 pb-lg-2" style="color: #393f81;">¿No tienes una cuenta?<a href="Register.php"

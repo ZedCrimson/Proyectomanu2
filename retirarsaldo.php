@@ -48,7 +48,10 @@
           <a class="nav-link" href="retirarsaldo.php">Retirar Saldo</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="historial.php">Ver Historial</a>
+          <a class="nav-link" href="historialpartidas.php">Ver Historial de Partidas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="historialoperacion.php">Ver Historial de Operaciones</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="Index.php">Cerrar Sesión</a>
@@ -111,10 +114,10 @@ echo "Tu saldo es de: <b>$valorsaldo €</b>";
 
                   <div data-mdb-input-init class="form-outline mb-4">
                   <label class="form-label" for="form2Example27">Saldo a retirar</label>
-                    <input type="number" name="saldo" class="form-control form-control-lg" />
+                    <input type="number" name="saldo" class="form-control form-control-lg" required/>
                   </div>
                   <input type="hidden" name="user_id" value="<?php echo $idusu; ?>" class="form-control form-control-lg" />
-                  <button type="submit" class="button">Retirar Saldo</button>
+                  <button type="submit" class="btn btn-primary">Retirar Saldo</button>
 
                 </form>
 

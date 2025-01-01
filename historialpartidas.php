@@ -45,6 +45,12 @@
           <a class="nav-link" href="retirarsaldo.php">Retirar Saldo</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="historialpartidas.php">Ver Historial de Partidas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="historialoperacion.php">Ver Historial de Operaciones</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="Index.php">Cerrar Sesión</a>
         </li>
       </ul>
@@ -93,12 +99,11 @@ $tabla = $conexion->query($sql);
 if ($tabla->num_rows > 0) {
     // Crear una tabla HTML
     echo "<table style='border-collapse: collapse; width: 100%;'>";
-    echo "<tr style='background-color: #f2f2f2;'><th>Id_usuario</th><th>Fecha</th><th>Apuesta</th><th>Color</th><th>Número_Ganador</th><th>Color_Ganador</th><th>Resultado</th></tr>"; // Encabezados de la tabla
+    echo "<tr style='background-color: #f2f2f2;'><th>Fecha</th><th>Apuesta</th><th>Color</th><th>Número_Ganador</th><th>Color_Ganador</th><th>Resultado</th></tr>"; // Encabezados de la tabla
 
     // Salida de cada fila de la tabla
     while($row = $tabla->fetch_assoc()) {
         echo "<tr>";
-        echo "<td style='border: 1px solidrgb(0, 0, 0); padding: 8px;'>" . $row["Id_usuario"] . "</td>";
         echo "<td style='border: 1px solidrgb(0, 0, 0); padding: 8px;'>" . $row["Fecha"] . "</td>";
         echo "<td style='border: 1px solidrgb(0, 0, 0); padding: 8px;'>" . $row["Apuesta"] . "</td>";
         echo "<td style='border: 1px solidrgb(0, 0, 0); padding: 8px;'>" . $row["Color"] . "</td>";

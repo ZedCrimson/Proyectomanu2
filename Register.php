@@ -23,7 +23,7 @@
               <form id="registro" name="registro" autocomplete="off" method="post" action="register2.php">
 
                 <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="text" name="nombre" class="form-control form-control-lg" />
+                  <input type="text" name="nombre" class="form-control form-control-lg" Required/>
                   <label class="form-label" for="form3Example1cg">Nombre</label>
                 </div>
 
@@ -33,12 +33,12 @@
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="email" name="email" class="form-control form-control-lg" />
+                  <input type="email" name="email" class="form-control form-control-lg" Required/>
                   <label class="form-label" for="form3Example4cg">Email</label>
                 </div>
 
                 <div data-mdb-input-init class="form-outline mb-4">
-                  <input type="password" name="contraseña" id="form3Example4cdg" class="form-control form-control-lg" />
+                  <input type="password" name="contraseña" id="form3Example4cdg" class="form-control form-control-lg" Required />
                   <label class="form-label" for="form3Example4cdg">Contraseña</label>
                 </div>
 
