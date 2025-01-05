@@ -108,9 +108,16 @@ echo "Tu saldo es de: <b>$valorsaldo €</b>";
 	<body>
   <?php
     ?>
-        <form class="form" method="POST" action="retirarsaldo2.php">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
 
-                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Verifica tu cuenta y introduce el saldo a retirar</h5>
+                     <form class="form" method="POST" action="retirarsaldo2.php">
+
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Introduce el saldo a retirar</h5>
 
                   <div data-mdb-input-init class="form-outline mb-4">
                   <label class="form-label" for="form2Example27">Saldo a retirar</label>
@@ -120,6 +127,14 @@ echo "Tu saldo es de: <b>$valorsaldo €</b>";
                   <button type="submit" class="btn btn-primary">Retirar Saldo</button>
 
                 </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
 		<!-- Optional JavaScript -->
